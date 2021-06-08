@@ -5,7 +5,7 @@ excerpt: 'Découvrez comment prendre en main votre nouveau serveur dédié'
 section: 'Premiers pas'
 ---
 
-**Dernière mise à jour le 16/02/2021**
+**Dernière mise à jour le 28/05/2021**
 
 ## Objectif
 
@@ -136,6 +136,23 @@ Cependant, vous pouvez effectuer un « hard reboot » à tout moment dans votre 
 
 Comme expliqué dans la section « Objectif » de ce guide, vous êtes l'administrateur de votre serveur dédié. En tant que tel, vous êtes responsable de vos données et de leur sécurité. Pour en savoir plus sur la sécurisation de votre serveur, consultez notre guide « [Sécuriser un serveur dédié](../securiser-un-serveur-dedie/) ».
 
+### Monitoring OVHcloud
+
+Vous pouvez activer ou désactiver le monitoring d'un serveur dédié à partir de l'onglet `Informations générales`{.action} de votre [espace client OVHcloud](https://www.ovh.com/auth/?action=gotomanager&from=https://www.ovh.com/fr/&ovhSubsidiary=fr). L'option se situe dans la section `État des services`.
+
+![monitoring](images/monitoring-your-server.png){.thumbnail}
+
+- Si le **Monitoring** est `Activé`, vous serez averti par e-mail chaque fois que le serveur se comporte de manière inattendue. Vous pouvez désactiver ces messages via le bouton `...`{.action}.
+
+- Si vous activez l'option **Interventions sur site**, vous autorisez les techniciens du data center à contrôler le matériel au cas où votre serveur ne répondrait plus aux pings.
+
+> [!warning]
+>
+> Si les interventions sur site sont activées (le curseur est alors sur `On`{.action}), veillez à **désactiver** l'option avant d'effectuer les actions appropriées sur votre serveur (tests matériels, redémarrages, etc.). Vous recevrez toujours des e-mails automatiques tant que la fonction « Monitoring » est active.
+>
+
+Vous trouverez plus d'informations sur le monitoring OVHcloud dans [ce guide](../monitoring-ip-ovh/).
+
 ### Configuration réseau
 
 #### Mode bridge IP
@@ -167,6 +184,12 @@ Reportez-vous au guide « [Activer et utiliser le mode rescue](../ovh-rescue/) �
 OVHcloud déploie tous les serveurs dédiés avec une console IPMI (Intelligent Platform Management Interface) qui s'exécute dans votre navigateur ou à partir d'une applet Java, et vous permet de vous connecter directement à votre serveur même s'il n'a pas de connexion réseau. Cela en fait un outil utile pour résoudre les problèmes qui ont pu mettre votre serveur hors ligne.
 
 Pour plus d'informations, reportez-vous à notre guide « [Utilisation de l'IPMI avec des serveurs dédiés](../utilisation-ipmi-serveurs-dedies/) ».
+
+### Backup storage
+
+Les serveurs dédiés OVHcloud comprennent un espace de stockage disposant d'un contrôle d'accès et fourni en tant qu'option gratuite. Il est préférable de l'utiliser comme option de sauvegarde complémentaire si jamais le serveur lui-même venait à subir une perte de données.
+
+Pour activer et utiliser l'option Backup Storage, consultez [ce guide](../services-backup-storage/).
 
 ## Allez plus loin
 

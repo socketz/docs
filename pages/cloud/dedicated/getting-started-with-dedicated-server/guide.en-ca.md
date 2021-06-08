@@ -6,7 +6,7 @@ section: 'Getting started'
 order: 1
 ---
 
-**Last updated 16th February 2021**
+**Last updated 27th May 2021**
 
 ## Objective
 
@@ -140,6 +140,22 @@ As explained in the “Objective” section of this guide, you are the administr
 
 ### Network configuration
 
+### OVHcloud Monitoring 
+
+You can set the monitoring status for a dedicated server from the `General information`{.action} tab in your [OVHcloud Control Panel](https://ca.ovh.com/auth/?action=gotomanager&from=https://www.ovh.com/ca/en/&ovhSubsidiary=ca) (section **Service status**).
+
+![Monitoring](images/monitoring-your-server.png){.thumbnail}
+
+- If **Monitoring** is set to `Enabled`, you will notified via email every time the server is behaving in an unexpected way. You can disable these messages via the `...`{.action} button.
+
+- If you activate the option **On-site interventions**, you consent to supervision by data centre technicians who will check the hardware in case your server stops responding to pings.
+
+> [!warning]
+> If on-site interventions are `On`{.action}, make sure to **disable** the option before you perform relevant actions on your server (hardware tests, reboots, etc.). You will still receive automatic emails as long as "Monitoring" is active.
+>
+
+You can find more information about OVHcloud Monitoring in [this guide](../monitoring-ip-ovh/).
+
 #### Network bridging
 
 Network bridging is the action taken by network equipment to create an aggregate network from either two or more communication networks, or two or more network segments. Bridging is distinct from routing, which allows the networks to communicate independently while remaining separate.
@@ -169,6 +185,12 @@ Please refer to the [rescue mode guide](../rescue-mode/).
 OVHcloud deploys all dedicated servers with an IPMI (Intelligent Platform Management Interface) console which runs in your browser or from a Java applet, and enables you to connect directly to your server even if it has no network connection. This makes it a useful tool for troubleshooting issues that may have taken your server offline.
 
 For more information, please refer to our guide: [Using the IPMI with dedicated servers](../use-ipmi-dedicated-servers).
+
+### Backup storage
+
+OVHcloud dedicated servers have an access-controlled storage space as a gratuitous service option. It is best used as a complementary backup option in case the server itself suffers data loss.
+
+To activate and use the backup storage, please refer to [this guide](../using-backup-storage/).
 
 ## Go further
 

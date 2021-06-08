@@ -9,7 +9,7 @@ section: 'Primeros pasos'
 > Esta traducción ha sido generada de forma automática por nuestro partner SYSTRAN. En algunos casos puede contener términos imprecisos, como en las etiquetas de los botones o los detalles técnicos. En caso de duda, le recomendamos que consulte la versión inglesa o francesa de la guía. Si quiere ayudarnos a mejorar esta traducción, por favor, utilice el botón «Contribuir» de esta página.
 >
 
-**Última actualización: 16/02/2021**
+**Última actualización: 28/05/2021**
 
 ## Objetivo
 
@@ -140,6 +140,23 @@ No obstante, puede realizar "hard reboot" en cualquier momento desde el [área d
 
 Como se recuerda en el apartado Objetivo de esta guía, usted es el administrador de su servidor dedicado Como tal, usted es responsable de sus datos y de su seguridad. Para más información sobre la seguridad de su servidor, consulte nuestra guía [Proteger un servidor dedicado](../seguridad-de-un-servidor-dedicado/).
 
+### Monitorización OVHcloud
+
+Puede activar o desactivar la monitorización de un servidor dedicado desde la pestaña `Información general`{.action} de su [área de cliente de OVHcloud](https://www.ovh.com/auth/?action=gotomanager&from=https://www.ovh.es/&ovhSubsidiary=es). La opción se encuentra en la sección `Estado de los servicios`.
+
+![monitoring](images/monitoring-your-server.png){.thumbnail}
+
+- Si la **monitorización** está `activada`, recibirá un mensaje de correo electrónico cada vez que el servidor se comporte de forma inesperada. Puede desactivar estos mensajes con el botón `...`{.action}.
+
+- Si activa la opción **Intervenciones in situ**, autoriza a los técnicos del datacenter a controlar el hardware en caso de que su servidor no responda a ping.
+
+> [!warning]
+>
+> Si las intervenciones in situ están activadas (el cursor estará en `On`{.action}, asegúrese de **desactivar** la opción antes de realizar las acciones apropiadas en su servidor (pruebas de hardware, reinicio, etc.). Siempre recibirá mensajes de correo automáticos mientras esté activa la función "Monitorización".
+>
+
+Para más información sobre la monitorización de OVHcloud, consulte [esta guía](../monitoring-ip-ovh/).
+
 ### Configuración de red
 
 #### Modo bridge IP
@@ -171,6 +188,12 @@ Para más información, consulte la guía ["Activar y utilizar el modo de rescat
 OVHcloud despliega todos los servidores dedicados con una consola IPMI (Intelligent Platform Management Interface) que se ejecuta en su navegador o a partir de un applet Java y le permite conectarse directamente a su servidor aunque no tenga conexión de red. Esto la convierte en una herramienta útil para resolver los problemas que han podido desconectar el servidor.
 
 Para más información, consulte nuestra guía [Uso de IPMI con servidores dedicados](../utilizar-ipmi-servidor-dedicado/).
+
+### Backup Storage
+
+Los servidores dedicados de OVHcloud incluyen un espacio de almacenamiento con control de acceso, que se proporciona como opción gratuita. Es preferible utilizarlo como opción de backup adicional si el propio servidor sufre una pérdida de datos.
+
+Para activar y utilizar la opción Backup Storage, consulte [esta guía](../servicio-backup-storage/).
 
 ## Más información
 

@@ -4,7 +4,7 @@ slug: postgresql
 section: Services
 ---
 
-**Last updated 24th March 2021**
+**Last updated 3rd June 2021**
 
 
 
@@ -82,7 +82,25 @@ relationships:
     postgresdatabase: "dbpostgres:postgresql"
 ```  
 
-
+> You will need to use `postgresql` type when defining the service
+>
+> ```yaml
+> # .platform/services.yaml
+> service_name:
+>       type: postgresql:version
+>       disk:256
+> ```
+>
+> and the endpoint `postgresql` when defining the relationship
+>
+> ```yaml
+> # .platform.app.yaml
+>  relationships:
+>       relationship_name: “service_name:postgresql”
+> ```
+>
+> Your `service_name` and `relationship_name` are defined by you, but we recommend making them distinct from each other.
+>
 
 
 For PHP, in your `.platform.app.yaml` add:
@@ -115,7 +133,7 @@ You can then use the service in a configuration file of your application with so
 
 ## Exporting data
 
-The easiest way to download all data in a PostgreSQL instance is with the WebPaaS CLI.  If you have a single SQL database, the following command will export all data using the `pg_dump` command to a local file:
+The easiest way to download all data in a PostgreSQL instance is with the WebPaas CLI.  If you have a single SQL database, the following command will export all data using the `pg_dump` command to a local file:
 
 ```bash
 webpaas db:dump

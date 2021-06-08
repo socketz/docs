@@ -11,7 +11,7 @@ order: 1
 >
 
 
-**Letzte Aktualisierung am 16.02.2021**
+**Letzte Aktualisierung am 27.05.2021**
 
 ## Ziel
 
@@ -142,6 +142,22 @@ Sie können jedoch jederzeit einen "Hard Reboot" in Ihrem [OVHcloud Kundencenter
 
 Wie oben erläutert, sind Sie der Administrator Ihres dedizierten Servers. Als solcher sind Sie für Ihre Daten und deren Sicherheit verantwortlich. Mehr Informationen zur Sicherung Ihres Servers finden Sie in unserer Anleitung zur [Absicherung eines Servers](../dedizierten-server-sichern/).
 
+### OVHcloud Monitoring 
+
+Sie können den Monitoring-Status eines Servers im [OVHcloud Kundencenter](https://www.ovh.com/auth/?action=gotomanager&from=https://www.ovh.de/&ovhSubsidiary=de) vom Tab `Allgemeine Informationen`{.action} aus kontrollieren (Abschnitt **Dienststatus**).
+
+![Monitoring](images/monitoring-your-server.png){.thumbnail}
+
+- Wenn **Monitoring** auf `Aktiviert` gestellt ist, werden Sie per E-Mail benachrichtigt sobald der Server sich unerwartet verhält. Sie können diese Benachrichtungen über den `...`{.action} Button deaktivieren.
+
+- Wenn Sie die Option **Eingriffe am Standort** aktivieren, stimmen Sie der Überwachung durch Techniker im Rechenzentrum zu. Die Hardware wird dann geprüft, falls Ihr Server nicht mehr auf Pings reagiert. 
+
+> [!warning]
+> Wenn die *on-site* Interventionen auf `On`{.action} gesetzt sind, stellen Sie sicher, dass Sie die Option **deaktivieren**, bevor Sie relevante Aktionen auf Ihrem Server durchführen (Hardwaretests, Neustarts, etc.). Sie erhalten Sie weiterhin automatische E-Mails, solange "Monitoring" aktiv ist.
+>
+
+Weitere Informationen zum OVHcloud Monitoring finden Sie in [unserer Anleitung](https://docs.ovh.com/gb/en/dedicated/monitoring-ip-ovh/).
+
 ### Netzwerkkonfiguration
 
 #### IP-Bridge-Modus
@@ -173,6 +189,12 @@ Folgen Sie unserer Anleitung zum [Rescue-Modus](../ovh-rescue/).
 OVHcloud stattet alle Dedicated Server mit einer IPMI-Konsole (Intelligent Platform Management Interface) aus, die in Ihrem Browser oder über ein Java-Applet ausgeführt wird. Sie können sich direkt mit Ihrem Server verbinden, auch wenn dieser über keine Netzwerkverbindung verfügt. Sie ist deshalb ein nützliches Werkzeug, um Fehler zu beheben, die Ihren Server unerreichbar machen.
 
 Weitere Informationen finden Sie in unserer Anleitung zur [Verwendung der IPMI-Konsole](../verwendung-ipmi-dedicated-server/).
+
+### Backup Storage
+
+OVHcloud Dedicated Server verfügen über einen zugriffskontrollierten Speicherplatz als kostenlose Serviceoption. Er eignet sich am besten als ergänzende Backup-Option für den Fall, dass der Server selbst einen Datenverlust erleidet.
+
+Zur Aktivierung und Nutzung des Backup Storage folgen Sie der [zugehörigen Anleitung](../dienste-storage-backup/).
 
 ## Weiterführende Informationen
 

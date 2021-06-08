@@ -5,7 +5,7 @@ section: Configuration
 order: 3
 ---
 
-**Last updated 31st March 2021**
+**Last updated 2nd June 2021**
 
 
 ## Objective  
@@ -220,22 +220,26 @@ These extra attributes may be used to "tag" routes in more complex scenarios tha
 
 You can get a list of the configured routes of an environment by running `webpaas environment:routes`.
 
-```sh
-webpaas environment:routes
-
-Routes on the project Website1 (7nbhqo4xy2ino), environment Master (master):
-+------------------------+----------+---------------------------------------------------------+
-| Route                  | Type     | To                                                      |
-+------------------------+----------+---------------------------------------------------------+
-| https://{default}/     | upstream | app                                                     |
-| https://www.{default}/ | redirect | https://master-7rqtwti-7nbhqo4xy2ino.ovhcloud-fr-1/     |
-| http://{default}/      | redirect | https://master-7rqtwti-7nbhqo4xy2ino.ovhcloud-fr-1/     |
-| http://www.{default}/  | redirect | https://www.master-7rqtwti-7nbhqo4xy2ino.ovhcloud-fr-1/ |
-+------------------------+----------+---------------------------------------------------------+
-```
+![WebPaas Routes CLI](images/platform-routes-cli.png "0.3")
 
 If you need to see more detailed info, such as cache and ssi, use `webpaas route:get`
 
+
+## Wildcard routes
+
+Web PaaS supports wildcard routes, so you can map multiple subdomains to the same application. This works both for redirect and upstream routes. You can simply prefix the route with a star (`*`), for example `*.example.com`, and HTTP request to `www.example.com`, `blog.example.com`, `us.example.com` will all get routed to the same endpoint.
+
+For your master environment, this would function as a catch-all domain once you [added the parent domain](../administration-web/configure-project#domains) to the project settings.
+
+For development environments, we will also be able to handle this. Here is how:
+
+Let's say we have a project on the EU cluster whose ID is "vmwklxcpbi6zq" and we created a branch called "add-theme". It's environment name will be similar to `add-theme-def123`.  The generated apex domain of this environment will be `add-theme-def123-vmwklxcpbi6zq.ovhcloud-fr-1.webpaas.ovh.net`. If we have a `http://*.{default}/` route defined, the generated route will be `http://*.add-theme-def123-vmwklxcpbi6zq.ovhcloud-fr-1.webpaas.ovh.net/`. This means you could put any subdomain before the left-most `.` to reach your application. HTTP request to both `http://foo.add-theme-def123-vmwklxcpbi6zq.ovhcloud-fr-1.webpaas.ovh.net/` and `http://bar.add-theme-def123-vmwklxcpbi6zq.ovhcloud-fr-1.webpaas.ovh.net/` URLs will be routed to your application properly. However, request to `http://*.add-theme-def123-vmwklxcpbi6zq.ovhcloud-fr-1.webpaas.ovh.net/` will not be routed since it is not a legitimate domain name.
+
+Be aware, however, that we do not support Let's Encrypt wildcard certificates (they would need DNS validation).  That means if you want to use a wildcard route and protect it with HTTPS you will need to provide a custom TLS certificate
+
+> [!primary]  
+> In projects created before November 2017 the `.` in subdomains was replaced with a triple dash (`---`).  It was switched to preserve `.` to simplify SSL handling and improve support for longer domains.  If your project was created before November 2017 then it will still use `---` to the left of the environment name.  If you wish to switch to dotted-domains please file a support ticket and we can do that for you.  Be aware that doing so may change the domain name that your production domain name should CNAME to.
+> 
 
 ## WebSocket routes
 

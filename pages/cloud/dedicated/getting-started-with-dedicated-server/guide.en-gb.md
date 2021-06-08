@@ -6,7 +6,7 @@ section: 'Getting started'
 order: 1
 ---
 
-**Last updated 16th February 2021**
+**Last updated 27th May 2021**
 
 ## Objective
 
@@ -138,6 +138,22 @@ However, you can carry out a "hard reboot" at any time in your [OVHcloud Control
 
 As explained in the “Objective” section of this guide, you are the administrator of your dedicated server. As such, you are responsible for your data and its security. You can learn more about securing your server in [this guide](../securing-a-dedicated-server/).
 
+### OVHcloud Monitoring 
+
+You can set the monitoring status for a dedicated server from the `General information`{.action} tab in your [OVHcloud Control Panel](https://www.ovh.com/auth/?action=gotomanager&from=https://www.ovh.co.uk/&ovhSubsidiary=GB) (section **Service status**).
+
+![Monitoring](images/monitoring-your-server.png){.thumbnail}
+
+- If **Monitoring** is set to `Enabled`, you will notified via email every time the server is behaving in an unexpected way. You can disable these messages via the `...`{.action} button.
+
+- If you activate the option **On-site interventions**, you consent to supervision by data centre technicians who will check the hardware in case your server stops responding to pings.
+
+> [!warning]
+> If on-site interventions are `On`{.action}, make sure to **disable** the option before you perform relevant actions on your server (hardware tests, reboots, etc.). You will still receive automatic emails as long as "Monitoring" is active.
+>
+
+You can find more information about OVHcloud Monitoring in [this guide](../monitoring-ip-ovh/).
+
 ### Network configuration
 
 #### Network bridging
@@ -152,7 +168,7 @@ For more information on network bridging, please refer to our guide: [Network Br
 
 IP aliasing is the process of associating two or more IP addresses to the same network interface. This allows your server to establish multiple connections to a network, each serving a different purpose.
 
-For detailed instructions on how to configure IP aliasing, please refer to [this guide](../network-ipaliasing).
+For detailed instructions on how to configure IP aliasing, please refer to [this guide](../network-ipaliasing/).
 
 #### IPv6 configuration
 
@@ -168,7 +184,13 @@ Please refer to the [rescue mode guide](../ovh-rescue/).
 
 OVHcloud deploys all dedicated servers with an IPMI (Intelligent Platform Management Interface) console which runs in your browser or from a Java applet, and enables you to connect directly to your server even if it has no network connection. This makes it a useful tool for troubleshooting issues that may have taken your server offline.
 
-For more information, please refer to our guide: [Using the IPMI with dedicated servers](../use-ipmi-dedicated-servers).
+For more information, please refer to our guide: [Using the IPMI with dedicated servers](../use-ipmi-dedicated-servers/).
+
+### Backup storage
+
+OVHcloud dedicated servers have an access-controlled storage space as a gratuitous service option. It is best used as a complementary backup option in case the server itself suffers data loss.
+
+To activate and use the backup storage, please refer to [this guide](../services-backup-storage/).
 
 ## Go further
 

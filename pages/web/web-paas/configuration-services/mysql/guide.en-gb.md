@@ -4,7 +4,7 @@ slug: mysql
 section: Services
 ---
 
-**Last updated 26th March 2021**
+**Last updated 3rd June 2021**
 
 
 
@@ -100,7 +100,25 @@ Note that the minimum disk size for `mysql`/`oracle-mysql` is 256MB.
 
 Despite these service type differences, MariaDB and Oracle MySQL both use the `mysql` endpoint in their configuration.
 
-
+> You will need to use `mariadb`, `mysql` or `oracle-mysql` type when defining the service
+>
+> ```yaml
+> # .platform/services.yaml
+> service_name:
+>       type: mariadb:version
+>       disk:256
+> ```
+>
+> and the endpoint `mysql` when defining the relationship
+>
+> ```yaml
+> # .platform.app.yaml
+>  relationships:
+>       relationship_name: “service_name:mysql”
+> ```
+>
+> Your `service_name` and `relationship_name` are defined by you, but we recommend making them distinct from each other.
+>
 
 You can then use the service in a configuration file of your application with something like:
 
@@ -163,7 +181,7 @@ db:
 
 This example creates a single MySQL/MariaDB service named `mysqldb`.  That server will have two databases, `main` and `legacy`.  There will be three endpoints created.  The first, named `admin`, will have full access to both databases.  The second, `reporter`, will have SELECT query access to the `main` DB but no access to `legacy` at all.  The `importer` user will have SELECT/INSERT/UPDATE/DELETE access (but not DDL access) to the `legacy` database but no access to `main`.
 
-If a given endpoint has access to multiple databases you should also specify which will be listed by default in the relationships array.  If one isn't specified the `path` property of the relationship will be null.  While that may be acceptable for an application that knows the name of the database to connect to, it would mean that automated tools such as the Platform CLI will not be able to access the database on that relationship. For that reason the `default_schema` property is always recommended.
+If a given endpoint has access to multiple databases you should also specify which will be listed by default in the relationships array.  If one isn't specified the `path` property of the relationship will be null.  While that may be acceptable for an application that knows the name of the database to connect to, it would mean that automated tools such as the WebPaas CLI will not be able to access the database on that relationship. For that reason the `default_schema` property is always recommended.
 
 Once those endpoints are defined, you need to expose them to your application as a relationship.  Continuing with our example, this would be a possible corresponding block from `.platform.app.yaml`:
 
@@ -268,7 +286,7 @@ If your database relationship has a password, you need to pass the `-p` switch a
 mysql -h database.internal -P 3306 -u user -p main
 ```
 
-Outside the application container, you can use Platform CLI `webpaas sql`.
+Outside the application container, you can use WebPaas CLI `webpaas sql`.
 
 ## Exporting data
 

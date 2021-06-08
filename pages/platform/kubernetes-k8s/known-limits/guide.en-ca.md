@@ -6,7 +6,7 @@ section: Technical resources
 ---
 
 
-**Last updated March 22, 2021.**
+**Last updated May 11, 2021.**
 
 <style>
  pre {
@@ -91,27 +91,21 @@ In any case, there are some ports that you shouldn't block on your instances if 
 
 ## Private Networks
 
-The `vRack` feature is currently available and compliant with our Managed Kubernetes Service as a public beta feature.  
-For more information, please refer to the [issue #15 of our public roadmap](https://github.com/ovh/public-cloud-roadmap/issues/15).  
+The `vRack` feature is currently available and compliant with our Managed Kubernetes Service.  
 
-### Some limitations must be taken into account
+To prevent any conflict, we advise you to keep `DHCP` service running in your private network.
 
-The `LoadBalancer` service is not yet compliant and fully operational with the `vRack`.
-
-To prevent any conflict, we advise you to use any range within the following IP range in the private networks associated with your vrack-enabled Kubernetes clusters and not to disable the DHCP service which is running in your private network:
-
-```text
-10.2.0.0/16
-```
+> [!warning]
+> If you create your subnet via the [OVHcloud APIv6](https://api.ovh.com/console/#/cloud/project/{serviceName}/network/private/{networkId}/subnet#POST), please ensure that this option `noGateway` is checked if you do not have a gateway on this subnet. Not doing so will result in faulty services of type LoadBalancer.
+>
 
 ### Known not compliant IP ranges
 
 The following subnets are not compliant with the `vRack` feature and can generate some incoherent behaviours with our used overlay networks:
 
 ```text
-192.168.15.0/24
-192.168.16.0/24
-172.17.0.0/16 (subnet used by the Docker daemon)
+10.2.0.0/16 # Subnet used by pods
+172.17.0.0/16 # Subnet used by the Docker daemon
 ```
 
 ## Cluster health
